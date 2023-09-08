@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\studentRequest;
 use App\Http\Services\studentService;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -13,13 +14,9 @@ class studentController extends Controller
         $students = Student::all();
         return view('Backend.Student.index', compact('students'));
     }
-    public function store(Request $request)
+    public function store(studentRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required',
-        ]);
+
         return (new studentService())->store( $request);
     }
     public function delete($id)
@@ -29,13 +26,9 @@ class studentController extends Controller
         $student->delete();
         return redirect()->route('student.list')->with('success', 'Student created successfully');
     }
-    public function update(Request $request)
+    public function update(studentRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required',
-        ]);
+        
        return (new studentService())->update($request);
     }
 }
