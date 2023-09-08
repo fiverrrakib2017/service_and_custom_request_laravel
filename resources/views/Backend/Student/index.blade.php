@@ -84,9 +84,9 @@
                                                             class="form-control"placeholder="Enter Email"  value="{{$students->email}}">
                                                     </div>
                                                     <div class="form-group mb-3 ">
-                                                        <label for="image">Student Phone</label>
-                                                        <input type="text"  name="phone"
-                                                            class="form-control"placeholder="Enter Phone" value="{{$students->email}}">
+                                                        <label for="phone number">Student Phone</label>
+                                                        <input type="number"  name="phone"
+                                                            class="form-control"placeholder="Enter Phone" value="{{$students->phone}}">
                                                     </div>
 
                                             </div>
